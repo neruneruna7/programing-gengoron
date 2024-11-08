@@ -1,0 +1,38 @@
+(define x (cons 1 2))
+(car x)
+(cdr x)
+
+(define y (list 1 2 3))
+(car y)
+(cdr y)
+(cdr (cdr y))
+(car (cdr (cdr y)))
+; (cdr (cdr (cdr y)))
+; (car (cdr (cdr (cdr y))))
+
+(newline)
+; フィボナッチ数列
+;f(n+1), f(n)をペアにしてConsセルにいれている
+(define (ff n)
+  (define (ff-iter i n ans)
+    (if (= i n) ans
+        (ff-iter (+ i 1) n (cons (+ (car ans) (cdr ans)) (car ans)))))
+  (ff-iter 0 n (cons 1 1)))
+
+(display (cdr (ff 10)))
+(newline)
+
+; クォートの導入
+(newline)
+(quote ( 1 2 3))
+'(1 2 3)
+(define a 'b)
+(define b 'a)
+
+(display a)
+(display b)
+(newline)
+
+''(1 2 3)
+(car ''(1 2 3))
+(cdr ''(1 2 3))
